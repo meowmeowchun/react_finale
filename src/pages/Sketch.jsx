@@ -55,8 +55,6 @@ function Sketch() {
                   loading="lazy"
                   onClick={() => setSelectedImage(product.image)} // Open modal with selected image
                 />
-                <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
-                <p className="text-lg">NT${product.price}</p>
                 <button
                   onClick={() => {
                     dispatch({
