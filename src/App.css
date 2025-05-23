@@ -4,14 +4,6 @@
 @plugin "daisyui" {
   themes: dark, light;
 }
-@plugin "daisyui/theme" {
-  name: "dark";
-  default: true;
-  --color-primary: #ff0000;
-  --color-secondary: #930F0F;
-  --color-neutral: #000000;
-  --color-accent: #ffffff;
-}
 
 @plugin "daisyui/theme" {
   name: "light";
@@ -21,3 +13,13 @@
   --color-neutral: #ffffff;
   --color-accent: #000000;
 }
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #ff0000;
+  --color-secondary: #930F0F;
+  --color-neutral: #000000;
+  --color-accent: #ffffff;
+}
+

@@ -4,13 +4,13 @@ import Footer from "../components/Footer";
 import Cover from "../components/Cover";
 import Email from "../components/Email";
 import BackToTop from "../components/BackToTop.jsx";
-
+import CommentBoard from "../components/Comment.jsx";
 function Home() {
   return (
     <>
       <Header />
       <Cover />
-
+      <CommentBoard />
       {/* Grid Section */}
       <div className="bg-neutral text-accent min-h-screen px-4 py-8">
         <div className="max-w-7xl mx-auto">
