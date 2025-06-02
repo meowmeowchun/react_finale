@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { useCartContext } from "../redux/CartContext";
 import fullart from "../data/fullart.js";
 import BackToTop from "../components/BackToTop.jsx";
+import { Link } from "react-router-dom"
 
 function Fullart() {
   const { dispatch } = useCartContext();
@@ -48,13 +49,14 @@ function Fullart() {
                 className="bg-neutral rounded-2xl p-4 shadow hover:shadow-lg transition"
               >
                 {/* Clickable Image */}
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer"
-                  loading="lazy"
-                  onClick={() => setSelectedImage(product.image)} // Open modal with selected image
-                />
+                <Link to={`/product/fullart/${product.id}`}>
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer"
+                    loading="lazy"
+                  />
+                </Link>
                 <button
                   onClick={() => {
                     dispatch({

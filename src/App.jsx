@@ -9,6 +9,7 @@ import Sketch from "./pages/Sketch";
 import { CartProvider, useCartContext } from "./redux/CartContext";
 import Toast from "./components/Toast";
 import "./App.css";
+import Product from "./pages/Product"; // ← 新增這行
 
 function AppContent() {
   const { state } = useCartContext();
@@ -25,6 +26,7 @@ function AppContent() {
           <Route path="/fanart" element={<Fanart />} />
           <Route path="/yamato" element={<Yamato />} />
           <Route path="/sketch" element={<Sketch />} />
+          <Route path="/product/:type/:id" element={<Product />} /> {/* ⬅ 加上這行 */}
         </Routes>
       </Router>
     </>
