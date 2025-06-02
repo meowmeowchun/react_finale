@@ -18,33 +18,6 @@ const yamato = yamatoData.map((item, index) => {
 function Yamato() {
   const { dispatch } = useCartContext();
 
-  // State for modal
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  // Close modal on Esc key press
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setSelectedImage(null); // Close the modal
-      }
-    };
-
-    // Add event listener
-    window.addEventListener("keydown", handleKeyDown);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  // Close modal when clicking outside
-  const handleOutsideClick = (e) => {
-    if (e.target.id === "modal-overlay") {
-      setSelectedImage(null);
-    }
-  };
-
   return (
     <>
       <Header />
@@ -91,22 +64,6 @@ function Yamato() {
         </div>
       </div>
 
-      {/* Modal for Full Image */}
-      {selectedImage && (
-        <div
-          id="modal-overlay"
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={handleOutsideClick} // Close modal when clicking outside
-        >
-          <div className="relative">
-            <img
-              src={selectedImage}
-              alt="Full View"
-              className="max-w-full max-h-screen rounded"
-            />
-          </div>
-        </div>
-      )}
       <BackToTop />
       <Email />
       <Footer />

@@ -26,7 +26,7 @@ function AppContent() {
           <Route path="/fanart" element={<Fanart />} />
           <Route path="/yamato" element={<Yamato />} />
           <Route path="/sketch" element={<Sketch />} />
-          <Route path="/product/:type/:id" element={<Product />} /> {/* ⬅ 加上這行 */}
+          <Route path="/product/:type/:id" element={<Product />} />
         </Routes>
       </Router>
     </>

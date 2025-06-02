@@ -10,33 +10,6 @@ import { Link } from "react-router-dom";
 function Fanart() {
   const { dispatch } = useCartContext();
 
-  // State for modal
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  // Close modal on Esc key press
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setSelectedImage(null); // Close the modal
-      }
-    };
-
-    // Add event listener
-    window.addEventListener("keydown", handleKeyDown);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  // Close modal when clicking outside
-  const handleOutsideClick = (e) => {
-    if (e.target.id === "modal-overlay") {
-      setSelectedImage(null);
-    }
-  };
-
   return (
     <>
       <Header />
@@ -83,28 +56,6 @@ function Fanart() {
         </div>
       </div>
 
-      {/* Modal for Full Image */}
-      {selectedImage && (
-        <div
-          id="modal-overlay"
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={handleOutsideClick} // Close modal when clicking outside
-        >
-          <div className="relative rounded-lg shadow-lg">
-            <img
-              src={selectedImage}
-              alt="Full View"
-              className="max-w-full max-h-screen rounded"
-            />
-            <button
-              onClick={() => setSelectedImage(null)} // Close modal
-              className="absolute top-2 right-2 text-black text-2xl font-bold"
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
       <BackToTop />
       <Email />
       <Footer />

@@ -3,6 +3,7 @@ import fanart from "../data/fanart";
 import fullart from "../data/fullart";
 import sketch from "../data/sketch";
 import yamato from "../data/yamato";
+import Comment from "../components/Comment.jsx";
 
 const datasets = {
   fanart,
@@ -30,6 +31,8 @@ function Product() {
           <div className="card-actions justify-end">
             <span className="text-lg font-bold">${product.price}</span>
             <button className="btn btn-primary">加入購物車</button>
+            {/* 👉 留言區 */}
+            <Comment productId={`${type}-${id}`} />
           </div>
         </div>
       </div>
