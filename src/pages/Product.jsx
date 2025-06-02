@@ -4,6 +4,7 @@ import fullart from "../data/fullart";
 import sketch from "../data/sketch";
 import yamato from "../data/yamato";
 import Comment from "../components/Comment.jsx";
+import Header from "../components/Header.jsx";
 
 const datasets = {
   fanart,
@@ -20,23 +21,26 @@ function Product() {
   if (!product) return <div className="text-center mt-10">找不到這個商品。</div>;
 
   return (
-    <div className="min-h-screen bg-neutral text-accent p-6">
-      <div className="max-w-3xl mx-auto card bg-base-100 shadow-xl">
-        <figure className="p-6">
-          <img src={product.image} alt={product.title} className="rounded-xl" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title text-primary">{product.title}</h2>
-          <p className="text-base-content">{product.description || "這是作品介紹。"}</p>
-          <div className="card-actions justify-end">
-            <span className="text-lg font-bold">${product.price}</span>
-            <button className="btn btn-primary">加入購物車</button>
-            {/* 👉 留言區 */}
-            <Comment productId={`${type}-${id}`} />
+    <>
+    <Header/>
+      <div className="min-h-screen bg-neutral text-accent p-6">
+        <div className="max-w-3xl mx-auto card bg-base-100 shadow-xl">
+          <figure className="p-6">
+            <img src={product.image} alt={product.title} className="rounded-xl" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title text-primary">{product.title}</h2>
+            <p className="text-base-content">{product.description || "這是作品介紹。"}</p>
+            <div className="card-actions justify-end">
+              <span className="text-lg font-bold">${product.price}</span>
+              <button className="btn btn-primary">加入購物車</button>
+              {/* 👉 留言區 */}
+              <Comment productId={`${type}-${id}`} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

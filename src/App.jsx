@@ -5,11 +5,11 @@ import Fullart from "./pages/Fullart";
 import Fanart from "./pages/Fanart";
 import Yamato from "./pages/Yamato";
 import Sketch from "./pages/Sketch";
-
 import { CartProvider, useCartContext } from "./redux/CartContext";
 import Toast from "./components/Toast";
 import "./App.css";
-import Product from "./pages/Product"; // ← 新增這行
+import Product from "./pages/Product";
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppContent() {
   const { state } = useCartContext();
@@ -18,7 +18,9 @@ function AppContent() {
   return (
     <>
       {notification && <Toast message={notification} />}
+
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />

@@ -13,3 +13,15 @@ body {
   width: 100%; /* Ensure the root container spans the full width */
   height: 100%; /* Ensure the root container spans the full height */
 }
+
+:root,
+    :root.light {
+    background-color: #fff;
+    }
+    :root.dark {
+    background-color: #121212;
+    }
+
+  body {
+    background-color: var(--bg-color);
+    }

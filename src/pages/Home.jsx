@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Cover from "../components/Cover";
 import Email from "../components/Email";
 import BackToTop from "../components/BackToTop.jsx";
-import CommentBoard from "../components/Comment.jsx";
+
 function Home() {
   return (
     <>

@@ -23,3 +23,10 @@
   --color-accent: #ffffff;
 }
 
+
+html[data-theme='dark'] {
+  background-color: #000000;
+}
+html[data-theme='light'] {
+  background-color: #ffffff;
+}
