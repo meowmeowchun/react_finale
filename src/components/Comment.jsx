@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebase"; // 根據你的專案位置調整
+import { db } from "../firebase";
 import {
   collection,
   addDoc,
@@ -47,7 +47,7 @@ export default function Comment({ productId }) {
     await addDoc(collection(db, "comments"), {
       name,
       text,
-      productId, // 記錄品項 ID
+      productId,
       createdAt: serverTimestamp(),
     });
 
@@ -56,14 +56,14 @@ export default function Comment({ productId }) {
   };
 
   return (
-    <div className="p-4 border rounded-xl bg-white shadow-md mt-6">
-      <h2 className="text-xl font-bold mb-2 text-gray-700">留言區</h2>
+    <div className="p-6 border border-base-300 rounded-xl bg-base-100 shadow-lg mt-6">
+      <h2 className="text-2xl font-bold mb-4 text-primary">留言區</h2>
 
-      <ul className="space-y-2 mb-4">
+      <ul className="space-y-3 mb-4">
         {comments.map((c) => (
-          <li key={c.id} className="border p-3 rounded-md bg-gray-50">
-            <span className="font-semibold">{c.name}</span>
-            <p className="text-gray-700 whitespace-pre-wrap">{c.text}</p>
+          <li key={c.id} className="p-4 rounded-lg bg-base-200 text-base-content">
+            <span className="font-semibold text-secondary">{c.name}</span>
+            <p className="mt-1 whitespace-pre-wrap">{c.text}</p>
           </li>
         ))}
       </ul>
@@ -71,35 +71,32 @@ export default function Comment({ productId }) {
       {!showForm ? (
         <button
           onClick={() => setShowForm(true)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+          className="btn btn-primary"
         >
           新增留言
         </button>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-3">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             placeholder="輸入名稱"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border rounded-md p-2"
+            className="input input-bordered w-full"
             required
           />
           <textarea
             placeholder="輸入留言（最多140字）"
             value={text}
             onChange={(e) => setText(e.target.value.slice(0, 140))}
-            className="w-full border rounded-md p-2 h-24 resize-none"
+            className="textarea textarea-bordered w-full h-24 resize-none"
             required
           />
           <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-base-content opacity-60">
               {text.length}/140 字
             </span>
-            <button
-              type="submit"
-              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
-            >
+            <button type="submit" className="btn btn-success">
               發佈留言
             </button>
           </div>
