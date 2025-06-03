@@ -1,3 +1,5 @@
+const images = import.meta.glob("../assets/yamato/*.png", { eager: true });
+
 const yamato = [
   { id: 1, title: "Yamato 1", price: 850 },
   { id: 2, title: "Yamato 2", price: 469 },
@@ -12,6 +14,10 @@ const yamato = [
   { id: 11, title: "Yamato 11", price: 497 },
   { id: 12, title: "Yamato 12", price: 262 },
   { id: 13, title: "Yamato 13", price: 874 },
-];
+].map((item) => {
+  const imagePath = `../assets/yamato/yamato_${item.id}.png`;
+  const image = images[imagePath]?.default || Object.values(images)[item.id - 1]?.default;
+  return { ...item, image };
+});
 
 export default yamato;
