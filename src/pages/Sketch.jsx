@@ -5,36 +5,10 @@ import Footer from "../components/Footer";
 import { useCartContext } from "../redux/CartContext";
 import sketches from "../data/sketch.js";
 import BackToTop from "../components/BackToTop.jsx";
+import { Link } from "react-router-dom"
 
 function Sketch() {
   const { dispatch } = useCartContext();
-
-  // State for modal
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  // Close modal on Esc key press
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setSelectedImage(null); // Close the modal
-      }
-    };
-
-    // Add event listener
-    window.addEventListener("keydown", handleKeyDown);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  // Close modal when clicking outside
-  const handleOutsideClick = (e) => {
-    if (e.target.id === "modal-overlay") {
-      setSelectedImage(null);
-    }
-  };
 
   return (
     <>
@@ -48,13 +22,14 @@ function Sketch() {
                 className="bg-neutral rounded-2xl p-4 shadow hover:shadow-lg transition"
               >
                 {/* Clickable Image */}
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer"
-                  loading="lazy"
-                  onClick={() => setSelectedImage(product.image)} // Open modal with selected image
-                />
+                <Link to={`/product/sketch/${product.id}`}>
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer"
+                    loading="lazy"
+                  />
+                </Link>
                 <button
                   onClick={() => {
                     dispatch({
@@ -80,23 +55,6 @@ function Sketch() {
           </div>
         </div>
       </div>
-
-      {/* Modal for Full Image */}
-      {selectedImage && (
-        <div
-          id="modal-overlay"
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
-          onClick={handleOutsideClick} // Close modal when clicking outside
-        >
-          <div className="relative">
-            <img
-              src={selectedImage}
-              alt="Full View"
-              className="max-w-full max-h-screen rounded"
-            />
-          </div>
-        </div>
-      )}
       <BackToTop />
       <Email />
       <Footer />

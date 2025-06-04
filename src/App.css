@@ -4,6 +4,16 @@
 @plugin "daisyui" {
   themes: dark, light;
 }
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  --color-primary: #ff0000;
+  --color-secondary: #AD0303;
+  --color-neutral: #ffffff;
+  --color-accent: #000000;
+}
+
 @plugin "daisyui/theme" {
   name: "dark";
   default: true;
@@ -13,11 +23,10 @@
   --color-accent: #ffffff;
 }
 
-@plugin "daisyui/theme" {
-  name: "light";
-  default: false;
-  --color-primary: #ff0000;
-  --color-secondary: #AD0303;
-  --color-neutral: #ffffff;
-  --color-accent: #000000;
+
+html[data-theme='dark'] {
+  background-color: #000000;
+}
+html[data-theme='light'] {
+  background-color: #ffffff;
 }

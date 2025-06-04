@@ -9,7 +9,7 @@ function Header() {
   const cartCount = state.cartItems.length;
 
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "light" // Default to light theme
+    localStorage.getItem("theme") || "dark" 
   );
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -24,8 +24,31 @@ function Header() {
     { to: "/sketch", label: "SKETCH " },
   ];
 
+  const [showHeader, setShowHeader] = useState(true);
+let lastScrollY = window.scrollY;
+
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // 滾動向下且已往下滑一段距離，隱藏 header
+      setShowHeader(false);
+    } else {
+      // 滾動向上，顯示 header
+      setShowHeader(true);
+    }
+
+    lastScrollY = currentScrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
   return (
-    <header className="sticky top-0 z-50 bg-neutral text-accent">
+    <header className={`sticky top-0 z-50 bg-neutral text-accent transition-transform duration-300 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
       <div className="flex justify-center py-4">
         <Link to="/">
           <img src="/img/icon choas 4.png" className="h-20" alt="Logo" />
