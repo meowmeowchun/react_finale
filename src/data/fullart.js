@@ -10,7 +10,7 @@ const sortedImageEntries = Object.entries(images).sort(([a], [b]) =>
 
 const fullart = sortedImageEntries.map(([path, module], index) => ({
   id: index + 1,
-  title: `Fullart ${index + 1}`,
+  title: `FULLART ${index + 1}`,
   price: Math.floor(Math.random() * 1000), // 可改成你要的價格邏輯
   image: module,
 }));
