@@ -6,10 +6,10 @@ import { useCartContext } from "../redux/CartContext";
 import yamatoData from "../data/yamato";
 import BackToTop from "../components/BackToTop.jsx";
 
-const images = import.meta.glob("../assets/yamato/*.png", { eager: true });
+const images = import.meta.glob("../assets/yamato/*.avif", { eager: true });
 
 const yamato = yamatoData.map((item, index) => {
-  const imagePath = `../assets/yamato/yamato_${item.id}.png`;
+  const imagePath = `../assets/yamato/yamato_${item.id}.avif`;
   const image = images[imagePath]?.default || Object.values(images)[index]?.default;
   return { ...item, image };
 });
