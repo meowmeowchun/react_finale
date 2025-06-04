@@ -54,10 +54,82 @@ export default function Comment({ productId }) {
     setText("");
     setShowForm(false);
   };
+return (
+  <div className="mt-6 bg-neutral text-accent p-6 space-y-6">
+    {/* 標題 */}
+    <h2 className="text-2xl font-extrabold tracking-wide text-primary font-[Girassol]">COMMENTS</h2>
 
-  return (
+    {/* 留言列表 */}
+    <div className="space-y-6">
+     {comments.map((c) => (
+  <div key={c.id} className="border border-accent p-4 space-y-2">
+    <div className="flex justify-between text-xs">
+      <span className="uppercase font-bold text-secondary font-[Girassol]">{c.name}</span>
+      <span>{new Date(c.date).toLocaleDateString("zh-TW")}</span>
+    </div>
+    <p className="text-sm tracking-wide leading-relaxed whitespace-pre-wrap font-[Girassol]">
+      {c.text}
+    </p>
+  </div>
+))}
+
+    </div>
+
+    {/* 留言表單 */}
+    {showForm ? (
+      <form onSubmit={handleSubmit} className="space-y-4 border border-accent p-4">
+        <input
+          type="text"
+          placeholder="type your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full bg-neutral text-accent border border-accent px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary font-[Girassol]"
+          required
+        />
+        <textarea
+          placeholder="add comment（140 words max）"
+          value={text}
+          onChange={(e) => setText(e.target.value.slice(0, 140))}
+          className="w-full h-24 resize-none bg-neutral text-accent border border-accent px-3 py-2 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary font-[Girassol]"
+          required
+        />
+        <div className="flex justify-between items-center text-xs text-gray-400 font-[Girassol]">
+  <span>{text.length}/140 words</span>
+  <div className="space-x-2">
+    <button
+      type="button"
+      onClick={() => {
+        setShowForm(false);
+        setText("");
+      }}
+      className="px-4 py-2 border border-accent text-accent hover:bg-accent hover:text-neutral transition"
+    >
+      cancel
+    </button>
+    <button
+      type="submit"
+      className="px-6 py-2 bg-accent text-neutral font-bold hover:brightness-125 transition"
+    >
+      publish
+    </button>
+  </div>
+</div>
+
+      </form>
+    ) : (
+      <button
+        onClick={() => setShowForm(true)}
+        className="px-4 py-2 bg-accent text-neutral font-bold hover:brightness-125 transition"
+      >
+        ADD COMMENT
+      </button>
+    )}
+  </div>
+);
+
+ // return (
     <div className="p-6 border border-base-300 rounded-xl bg-base-100 shadow-lg mt-6">
-      <h2 className="text-2xl font-bold mb-4 text-primary">留言區</h2>
+      <h2 className="text-2xl font-bold mb-4 text-primary">COMMENTS</h2>
 
       <ul className="space-y-3 mb-4">
         {comments.map((c) => (
@@ -103,5 +175,5 @@ export default function Comment({ productId }) {
         </form>
       )}
     </div>
-  );
+  //);
 }
