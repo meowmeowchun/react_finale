@@ -10,7 +10,6 @@ function Home() {
     <>
       <Header />
       <Cover />
-
       {/* Grid Section */}
       <div className="bg-neutral text-accent min-h-screen px-4 py-8">
         <div className="max-w-7xl mx-auto">
