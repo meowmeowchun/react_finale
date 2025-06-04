@@ -38,27 +38,45 @@ function Product() {
       <Header />
 
       <div className="min-h-screen bg-neutral text-accent p-6">
-        <div className="max-w-[95vw] md:max-w-[90vw] mx-auto card bg-base-100 shadow-xl">
-          <figure className="p-6">
-            <img
-              src={product.image}
-              alt={product.title}
-              className="m-6 rounded-xl cursor-pointer max-h-[80vh]"
-              onClick={() => setModalOpen(true)}
-            />
-            <div className="flex-1 p-4 overflow-auto">
-              <div className="flex flex-wrap">
-              <h2 className="w-full justify-start align-top text-primary font-bold text-6xl font-[Girassol]">{product.title}</h2>
-              <span className="font-bold font-[Girassol] text-4xl">${product.price}</span>
-              <p className="w-full align-middle justify-center">{product.description || "這是作品介紹。"}</p>
-              <div className="card-actions justify-end items-center mt-4 gap-4">
-                <button onClick={handleAddToCart} className="btn btn-primary font-[Girassol] text-3xl font-light">
+        <div className="max-w-[95vw] md:max-w-[90vw] mx-auto card bg-base-100 shadow-xl ">
+
+          <figure className="flex flex-col md:flex-row items-stretch p-6 gap-6 bg-neutral">
+            {/* 左邊圖片區 */}
+            <div className="w-full md:w-[40%] shrink-0">
+              <div className="h-full">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="rounded-xl cursor-pointer w-full h-full object-contain"
+                  onClick={() => setModalOpen(true)}
+                />
+              </div>
+            </div>
+
+            {/* 右邊內容區 */}
+            <div className="flex-1 bg-neutral p-4 rounded-xl flex flex-col justify-between">
+              <div>
+                <h2 className="text-primary font-bold text-6xl font-[Girassol]">
+                  {product.title}
+                </h2>
+                <span className="block mt-2 font-bold font-[Girassol] text-4xl">
+                  ${product.price}
+                </span>
+                <p className="mt-4">{product.description || "這是作品介紹。"}</p>
+              </div>
+              <div className="mt-6 self-end">
+                <button
+                  onClick={handleAddToCart}
+                  className="btn btn-primary font-[Girassol] text-3xl font-light"
+                >
                   ADD TO CART
                 </button>
               </div>
-              </div>
             </div>
           </figure>
+
+
+
 
           <div className="card-body">
 
