@@ -27,7 +27,7 @@ function Fullart() {
                     src={product.image}
                     alt={product.title}
                     className="w-full h-64 object-cover rounded-xl mb-4 cursor-pointer"
-                    loading="lazy"
+                    
                   />
                 </Link>
                 <button
