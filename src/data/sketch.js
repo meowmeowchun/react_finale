@@ -1,4 +1,4 @@
-const sketchImages = import.meta.glob("../assets/sketch/*.png", {
+const sketchImages = import.meta.glob("../assets/sketch/*.avif", {
   eager: true,
   import: "default",
 });

@@ -8,7 +8,7 @@ function Cover() {
         {/* 左邊面具 */}
         <img
   src="./img/left head.png"
-  className="h-[50vh] absolute left-0 top-30 animate-mask-left"
+  className="h-[50vh] absolute left-0 top-30 animate-mask-left z-10"
   style={{ animationDelay: "0.2s" }}
   alt="Left Head"
 />

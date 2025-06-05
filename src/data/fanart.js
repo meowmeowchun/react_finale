@@ -1,8 +1,8 @@
 // src/data/fanart.js
-const images = import.meta.glob('../assets/fanart/*.png', { eager: true });
+const images = import.meta.glob('../assets/fanart/*.avif', { eager: true });
 
 const sortedImageEntries = Object.entries(images).sort(([a], [b]) => {
-  const getNum = (str) => Number(str.match(/fanart_(\d+)\.png/)?.[1]);
+  const getNum = (str) => Number(str.match(/fanart_(\d+)\.avif/)?.[1]);
   return getNum(a) - getNum(b);
 });
 

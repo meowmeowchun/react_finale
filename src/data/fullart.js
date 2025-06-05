@@ -1,4 +1,4 @@
-const images = import.meta.glob('../assets/fullart/*.png', {
+const images = import.meta.glob('../assets/fullart/*.avif', {
   eager: true,
   import: 'default',
 });
