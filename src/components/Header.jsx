@@ -55,7 +55,7 @@ useEffect(() => {
         </Link>
       </div>
       {/* Theme controller */}
-    <div className="absolute right-20 top-1/2 -translate-y-1/2 text-primary text-3xl hover:text-secondary">
+    <div className="absolute right-6 top-1/5 sm:right-20 sm:top-1/2 -translate-y-1/2 text-primary text-3xl hover:text-secondary">
       <label className="swap swap-rotate">
         {/* this hidden checkbox controls the state */}
         <input 
@@ -66,7 +66,7 @@ useEffect(() => {
 
         {/* sun icon */}
         <svg
-          className="swap-off h-10 w-10 fill-current"
+          className="h-8 w-8 swap-off sm:h-10 sm:w-10 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24">
           <path
@@ -75,7 +75,7 @@ useEffect(() => {
 
         {/* moon icon */}
         <svg
-          className="swap-on h-10 w-10 fill-current"
+          className="swap-on h-8 w-8 sm:h-10 sm:w-10 fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24">
           <path
@@ -84,24 +84,24 @@ useEffect(() => {
       </label>
       </div>
 
-      <div> {/* Cart icon */}
+      {/* Cart icon */}
         <Link
           to="/cart"
-          className="absolute right-6 top-1/2 -translate-y-1/2 text-primary text-3xl hover:text-secondary"
+          className="absolute h-8 w-8 sm:h-10 sm:w-10 right-6 top-1/2 -translate-y-1/2 text-primary text-3xl hover:text-secondary"
         >
-          <MdShoppingCart />
+          <MdShoppingCart className="w-full h-full" />
           {cartCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-primary text-neutral text-xs w-5 h-5 rounded-full flex items-center justify-center">
+            <span className="absolute -top-2 -right-2 bg-primary text-neutral text-xs w-3 h-3 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
               {cartCount}
             </span>
           )}
         </Link>
-      </div>
+      
 
       <nav className="shadow-md">
-        <ul className="flex justify-center gap-8 py-4">
+        <ul className="flex justify-center gap-3 sm:gap-8 py-4 ml-3 mr-3">
           {links.map((link) => (
-            <li key={link.to}>
+            <li key={link.to} className="text-center">
               <Link
                 to={link.to}
                 className={`text-primary font-[Girassol] text-2xl transition-all duration-300
