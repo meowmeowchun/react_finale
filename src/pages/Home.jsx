@@ -49,43 +49,85 @@ function Home() {
           </div>
 
           {/* Second Row: 5 Images */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <Link to="/fullart">
-              <img
-                src="/img/i am art.png"
-                alt="Full Art"
-                className="w-full h-64 object-cover hover:shadow-lg transition cursor-pointer"
-              />
-            </Link>
-            <Link to="/fanart">
-              <img
-                src="/img/i am art.png"
-                alt="Fan Art"
-                className="w-full h-64 object-cover hover:shadow-lg transition cursor-pointer"
-              />
-            </Link>
-            <Link to="/">
-              <img
-                src="/img/i am art.png"
-                alt="Home"
-                className="w-full h-64 object-cover hover:shadow-lg transition cursor-pointer"
-              />
-            </Link>
-            <Link to="/yamato">
-              <img
-                src="/img/i am art.png"
-                alt="Yamato"
-                className="w-full h-64 object-cover hover:shadow-lg transition cursor-pointer"
-              />
-            </Link>
-            <Link to="/sketch">
-              <img
-                src="/img/i am art.png"
-                alt="Sketch"
-                className="w-full h-64 object-cover hover:shadow-lg transition cursor-pointer"
-              />
-            </Link>
-          </div>
+          {/* Second Row: Auto-Scrolling Images */}
+<div className="overflow-hidden relative w-full mb-6">
+  <div className="flex w-max animate-scrollX">
+    {/* 第一組圖像 */}
+    <Link to="/fullart">
+      <img
+        src="/img/i am art.png"
+        alt="Full Art 1"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/fanart">
+      <img
+        src="/img/i am art.png"
+        alt="Fan Art 2"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/">
+      <img
+        src="/img/i am art.png"
+        alt="Home"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/yamato">
+      <img
+        src="/img/i am art.png"
+        alt="Yamato"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/sketch">
+      <img
+        src="/img/i am art.png"
+        alt="Sketch"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+
+    {/* 第二組圖像（重複） */}
+    <Link to="/fullart">
+      <img
+        src="/img/i am art.png"
+        alt="Full Art 1 duplicate"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/fanart">
+      <img
+        src="/img/i am art.png"
+        alt="Fan Art 2 duplicate"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/">
+      <img
+        src="/img/i am art.png"
+        alt="Home duplicate"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/yamato">
+      <img
+        src="/img/i am art.png"
+        alt="Yamato duplicate"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+    <Link to="/sketch">
+      <img
+        src="/img/i am art.png"
+        alt="Sketch duplicate"
+        className="w-64 h-64 object-cover mx-2 cursor-pointer"
+      />
+    </Link>
+  </div>
+</div>
+
 
           {/* Third Row: 1 Images */}
           <div className="grid grid-cols-1 w-full h-auto mb-6">

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Magnet from "../components/Magnet"; // ← 確保有引入
 
 const SubscribeBanner = () => {
   const [email, setEmail] = useState("");
@@ -15,13 +16,18 @@ const SubscribeBanner = () => {
   };
 
   return (
-    <div className="bg-neutral text-center py-12 px-4">
-      {/* 怪物插圖 */}
-      <img
-        src="/img/deman.png"
-        alt="Monster Illustration"
-        className="mx-auto max-w-4xl w-full mb-8"
-      />
+    
+      <div className="bg-neutral text-center py-12 px-4">
+      {/* 怪物插圖 + Magnet 動畫 */}
+      <Magnet padding={100} magnetStrength={5}>
+        <img
+          src="/img/deman.png"
+          alt="Monster Illustration"
+          className="mx-auto max-w-4xl w-full mb-8"
+        />
+      </Magnet>
+      
+      
 
       {/* 標語文字 */}
       <p className="text-primary font-[Girassol] font-bold text-lg uppercase tracking-wider mb-4">
