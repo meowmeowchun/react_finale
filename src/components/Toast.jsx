@@ -16,9 +16,11 @@ function Toast({ message }) {
   if (!message) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 bg-accent text-neutral px-4 py-2 rounded shadow-lg z-[1000]">
-      {message}
-    </div>
+    <div className="fixed bottom-6 right-6 bg-accent text-neutral px-4 py-2 rounded shadow-lg z-[1000]
+                text-lg  tracking-wide font-[Girassol]">
+  {message}
+</div>
+
   );
 }
 

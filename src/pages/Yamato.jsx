@@ -6,7 +6,6 @@ import { useCartContext } from "../redux/CartContext";
 import yamatoData from "../data/yamato";
 import BackToTop from "../components/BackToTop.jsx";
 import { Link } from "react-router-dom";
-import CartImagePopup from "../components/CartImagePopup";
 
 const images = import.meta.glob("../assets/yamato/*.avif", { eager: true });
 
@@ -18,7 +17,6 @@ const yamato = yamatoData.map((item, index) => {
 
 function Yamato() {
   const { dispatch } = useCartContext();
-  const [showCartImage, setShowCartImage] = useState(false);
 
   const handleAddToCart = (product) => {
     dispatch({
@@ -30,14 +28,15 @@ function Yamato() {
         image: product.image,
       },
     });
-    setShowCartImage(true);
-    setTimeout(() => setShowCartImage(false), 1500);
+    dispatch({
+      type: "SET_NOTIFICATION",
+      payload: "added to cart",
+    });
   };
 
   return (
     <>
       <Header />
-      <CartImagePopup show={showCartImage} />
       <div className="bg-neutral text-accent min-h-screen px-4 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

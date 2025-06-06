@@ -9,7 +9,6 @@ import yamato from "../data/yamato";
 
 import Comment from "../components/Comment.jsx";
 import Header from "../components/Header.jsx";
-import CartImagePopup from "../components/CartImagePopup.jsx";
 import DotGrid from "../blocks/Backgrounds/DotGrid/DotGrid.jsx";
 
 const datasets = {
@@ -26,13 +25,14 @@ function Product() {
 
   const { dispatch } = useCartContext();
   const [modalOpen, setModalOpen] = useState(false);
-  const [showCartImage, setShowCartImage] = useState(false);
 
   const handleAddToCart = () => {
     if (product) {
       dispatch({ type: "ADD_TO_CART", payload: product });
-      setShowCartImage(true);
-      setTimeout(() => setShowCartImage(false), 1500);
+      dispatch({
+        type: "SET_NOTIFICATION",
+        payload: "added to cart",
+      });
     }
   };
 
@@ -41,7 +41,6 @@ function Product() {
   return (
     <>
       <Header />
-      <CartImagePopup show={showCartImage} />
 
       <div className="min-h-screen bg-neutral text-accent p-6">
         <div className="max-w-[95vw] md:max-w-[90vw] mx-auto card bg-neutral shadow-xl">
