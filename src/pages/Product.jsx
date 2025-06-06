@@ -108,7 +108,7 @@ function Product() {
           <img
             src={product.image}
             alt={product.title}
-            className="z-50 max-h-[90vh] max-w-full rounded-lg shadow-lg"
+            className="z-50 max-h-[90vh] max-w-full shadow-lg"
           />
         </div>
       )}
