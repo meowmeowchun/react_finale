@@ -51,7 +51,7 @@ useEffect(() => {
     <header className={`sticky top-0 z-50 bg-neutral text-accent transition-transform duration-300 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
       <div className="flex justify-center py-4">
         <Link to="/">
-          <img src="/img/icon choas 4.png" className="h-20" alt="Logo" />
+          <img src="/img/icon choas 3.png" className="h-20" alt="Logo" />
         </Link>
       </div>
       {/* Theme controller */}

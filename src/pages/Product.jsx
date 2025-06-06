@@ -11,6 +11,8 @@ import Comment from "../components/Comment.jsx";
 import Header from "../components/Header.jsx";
 import DotGrid from "../blocks/Backgrounds/DotGrid/DotGrid.jsx";
 
+import ScrollVelocity from '../blocks/TextAnimations/ScrollVelocity/ScrollVelocity.jsx';
+
 const datasets = {
   fanart,
   fullart,
@@ -42,8 +44,8 @@ function Product() {
     <>
       <Header />
 
-      <div className="min-h-screen bg-neutral text-accent p-6">
-        <div className="max-w-[95vw] md:max-w-[90vw] mx-auto card bg-neutral shadow-xl">
+      <div className="min-h-screen bg-neutral text-accent">
+        <div className="mx-auto card bg-neutral shadow-xl">
           {/* 主要內容區塊 */}
           <figure className="p-6 flex flex-col md:flex-row gap-6">
             {/* 左邊圖片 */}
@@ -93,6 +95,14 @@ function Product() {
             </div>
           </figure>
 
+
+      <div className="w-full">
+          <ScrollVelocity
+            texts={['sleeper chaos', 'art shop']}
+            velocity={100}
+            className="custom-scroll-text font-[Girassol] text-primary"
+          />
+</div>
           {/* 留言區 */}
           <div className="card-body">
             <div className="mt-8 max-w-4xl mx-auto w-full">
