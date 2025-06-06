@@ -9,9 +9,12 @@ import yamato from "../data/yamato";
 
 import Comment from "../components/Comment.jsx";
 import Header from "../components/Header.jsx";
-import DotGrid from "../blocks/Backgrounds/DotGrid/DotGrid.jsx";
+import Email from "../components/Email.jsx";
+import Footer from "../components/Footer.jsx";
 
+import DotGrid from "../blocks/Backgrounds/DotGrid/DotGrid.jsx";
 import ScrollVelocity from '../blocks/TextAnimations/ScrollVelocity/ScrollVelocity.jsx';
+import { ImprovedNoise } from "three/examples/jsm/Addons.js";
 
 const datasets = {
   fanart,
@@ -96,13 +99,13 @@ function Product() {
           </figure>
 
 
-      <div className="w-full">
-          <ScrollVelocity
-            texts={['sleeper chaos', 'art shop']}
-            velocity={100}
-            className="custom-scroll-text font-[Girassol] text-primary"
-          />
-</div>
+          <div className="w-full">
+            <ScrollVelocity
+              texts={['sleeper chaos', 'art shop']}
+              velocity={100}
+              className="custom-scroll-text font-[Girassol] text-primary"
+            />
+          </div>
           {/* 留言區 */}
           <div className="card-body">
             <div className="mt-8 max-w-4xl mx-auto w-full">
@@ -126,6 +129,8 @@ function Product() {
           />
         </div>
       )}
+      <Email/>
+      <Footer/>
     </>
   );
 }
