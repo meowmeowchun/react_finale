@@ -25,14 +25,13 @@ function Product() {
 
   const { dispatch } = useCartContext();
   const [modalOpen, setModalOpen] = useState(false);
+  const [showCartImage, setShowCartImage] = useState(false);
 
   const handleAddToCart = () => {
     if (product) {
       dispatch({ type: "ADD_TO_CART", payload: product });
-      dispatch({
-        type: "SET_NOTIFICATION",
-        payload: "added to cart",
-      });
+      setShowCartImage(true);
+      setTimeout(() => setShowCartImage(false), 1500);
     }
   };
 
@@ -41,6 +40,7 @@ function Product() {
   return (
     <>
       <Header />
+      <CartImagePopup show={showCartImage} />
 
       <div className="min-h-screen bg-neutral text-accent p-6">
         <div className="max-w-[95vw] md:max-w-[90vw] mx-auto card bg-neutral shadow-xl">
@@ -92,6 +92,14 @@ function Product() {
               </div>
             </div>
           </figure>
+
+
+
+          <ScrollVelocity
+            texts={['React Bits', 'Scroll Down']}
+            velocity={velocity}
+            className="custom-scroll-text"
+          />
 
           {/* 留言區 */}
           <div className="card-body">
