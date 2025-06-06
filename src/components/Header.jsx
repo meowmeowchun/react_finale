@@ -18,10 +18,10 @@ function Header() {
   }, [theme]);
 
   const links = [
-    { to: "/fullart", label: "FULL ART" },
-    { to: "/fanart", label: "FAN  ART" },
-    { to: "/yamato", label: " YAMATO " },
-    { to: "/sketch", label: "SKETCH " },
+    { to: "/fullart", label: "FULLART" },
+    { to: "/fanart", label: "FANART" },
+    { to: "/yamato", label: "YAMATO" },
+    { to: "/sketch", label: "SKETCH" },
   ];
 
   const [showHeader, setShowHeader] = useState(true);
@@ -99,7 +99,7 @@ useEffect(() => {
       
 
       <nav className="shadow-md">
-        <ul className="flex justify-center gap-3 sm:gap-8 py-4 ml-3 mr-3">
+        <ul className="flex justify-center gap-3 sm:gap-8 py-4 ml-3 mr-3 sm:mr-5">
           {links.map((link) => (
             <li key={link.to} className="text-center">
               <Link
