@@ -30,6 +30,10 @@ function Product() {
   const handleAddToCart = () => {
     if (product) {
       dispatch({ type: "ADD_TO_CART", payload: product });
+       dispatch({
+                      type: "SET_NOTIFICATION",
+                      payload: "1 item added to cart",
+                    });
     }
   };
 

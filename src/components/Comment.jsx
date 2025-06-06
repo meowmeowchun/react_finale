@@ -65,7 +65,13 @@ return (
   <div key={c.id} className="border border-accent p-4 space-y-2">
     <div className="flex justify-between text-xs">
       <span className="uppercase font-bold text-secondary font-[Girassol]">{c.name}</span>
-      <span>{new Date(c.date).toLocaleDateString("zh-TW")}</span>
+      <span className="uppercase font-bold text-accent font-[Girassol] ">
+  {c.createdAt?.toDate
+    ? c.createdAt.toDate().toLocaleDateString("zh-TW")
+    : ""}
+</span>
+
+
     </div>
     <p className="text-sm tracking-wide leading-relaxed whitespace-pre-wrap font-[Girassol]">
       {c.text}
@@ -125,5 +131,4 @@ return (
       </button>
     )}
   </div>
-);
-}
+);}
