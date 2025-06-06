@@ -57,7 +57,7 @@ function Yamato() {
                 </Link>
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="mt-2 px-4 py-2 bg-accent text-neutral rounded hover:opacity-80 transition active:scale-95"
+                  className="btn btn-accent font-[Girassol] text-lg mt-2 px-4 py-2 rounded hover:opacity-80 transition active:scale-90"
                 >
                   ADD TO CART
                 </button>
