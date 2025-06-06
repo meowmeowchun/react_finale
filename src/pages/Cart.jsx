@@ -1,4 +1,3 @@
-// Cart.jsx
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Email from "../components/Email";
@@ -9,13 +8,27 @@ function Cart() {
   const { state, dispatch } = useCartContext(); // ⭐ 使用 context
   const { cartItems } = state;
 
+  const handleClearCart = () => {
+    dispatch({ type: "CLEAR_CART" }); // ⭐ 觸發清空購物車
+  };
+
   return (
     <div className="bg-neutral text-accent min-h-screen flex flex-col">
       <Header />
 
       {/* 購物車清單區域 */}
       <main className="flex-1 px-4 md:px-20 py-8">
-        <h2 className="text-2xl font-bold mb-6">CART</h2>
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">CART</h2>
+          {cartItems.length > 0 && (
+            <button
+              onClick={handleClearCart}
+              className="text-sm text-primary hover:underline"
+            >
+              REMOVE ALL
+            </button>
+          )}
+        </div>
 
         {cartItems.length === 0 ? (
           <p className="text-center text-lg">CART IS EMPTY</p>
@@ -51,12 +64,9 @@ function Cart() {
           ))
         )}
       </main>
+
       <BackToTop />
-
-      {/* Email 區塊 */}
       <Email />
-
-      {/* Footer */}
       <Footer />
     </div>
   );

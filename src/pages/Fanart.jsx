@@ -6,13 +6,30 @@ import { useCartContext } from "../redux/CartContext";
 import fanart from "../data/fanart.js";
 import BackToTop from "../components/BackToTop.jsx";
 import { Link } from "react-router-dom";
+import CartImagePopup from "../components/CartImagePopup";
 
 function Fanart() {
   const { dispatch } = useCartContext();
+  const [showCartImage, setShowCartImage] = useState(false);
+
+  const handleAddToCart = (product) => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        name: product.title,
+        price: product.price,
+        quantity: 1,
+        image: product.image,
+      },
+    });
+    setShowCartImage(true);
+    setTimeout(() => setShowCartImage(false), 1500);
+  };
 
   return (
     <>
       <Header />
+      <CartImagePopup show={showCartImage} />
       <div className="bg-neutral text-accent min-h-screen px-4 py-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -31,22 +48,8 @@ function Fanart() {
                   />
                 </Link>
                 <button
-                  onClick={() => {
-                    dispatch({
-                      type: "ADD_TO_CART",
-                      payload: {
-                        name: product.title,
-                        price: product.price,
-                        quantity: 1,
-                        image: product.image,
-                      },
-                    });
-                    dispatch({
-                      type: "SET_NOTIFICATION",
-                      payload: "1 item added to cart",
-                    });
-                  }}
-                  className="mt-2 px-4 py-2 bg-accent text-neutral rounded hover:opacity-80"
+                  onClick={() => handleAddToCart(product)}
+                  className="mt-2 px-4 py-2 bg-accent text-neutral rounded hover:opacity-80 transition active:scale-95"
                 >
                   ADD TO CART
                 </button>

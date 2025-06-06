@@ -17,6 +17,11 @@ const reducer = (state, action) => {
         ...state,
         cartItems: state.cartItems.filter((_, i) => i !== action.payload),
       };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cartItems: [],
+      };
     case "SET_NOTIFICATION":
       return {
         ...state,
@@ -31,6 +36,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
 
 const CartContext = createContext();
 

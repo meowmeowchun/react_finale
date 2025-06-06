@@ -9,7 +9,7 @@ import yamato from "../data/yamato";
 
 import Comment from "../components/Comment.jsx";
 import Header from "../components/Header.jsx";
-
+import CartImagePopup from "../components/CartImagePopup.jsx";
 import DotGrid from "../blocks/Backgrounds/DotGrid/DotGrid.jsx";
 
 const datasets = {
@@ -26,14 +26,13 @@ function Product() {
 
   const { dispatch } = useCartContext();
   const [modalOpen, setModalOpen] = useState(false);
+  const [showCartImage, setShowCartImage] = useState(false);
 
   const handleAddToCart = () => {
     if (product) {
       dispatch({ type: "ADD_TO_CART", payload: product });
-       dispatch({
-                      type: "SET_NOTIFICATION",
-                      payload: "1 item added to cart",
-                    });
+      setShowCartImage(true);
+      setTimeout(() => setShowCartImage(false), 1500);
     }
   };
 
@@ -42,6 +41,7 @@ function Product() {
   return (
     <>
       <Header />
+      <CartImagePopup show={showCartImage} />
 
       <div className="min-h-screen bg-neutral text-accent p-6">
         <div className="max-w-[95vw] md:max-w-[90vw] mx-auto card bg-neutral shadow-xl">
@@ -85,7 +85,8 @@ function Product() {
               <div className="mt-6">
                 <button
                   onClick={handleAddToCart}
-                  className="btn btn-primary font-[Girassol] text-xl md:text-2xl font-light w-full md:w-auto"
+                  className="btn btn-primary font-[Girassol] text-xl md:text-2xl font-light w-full md:w-auto 
+                           transition transform active:scale-95 duration-100 ease-in-out"
                 >
                   ADD TO CART
                 </button>
