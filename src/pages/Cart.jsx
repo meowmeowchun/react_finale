@@ -19,11 +19,11 @@ function Cart() {
       {/* 購物車清單區域 */}
       <main className="flex-1 px-4 md:px-20 py-8">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">CART</h2>
+          <h2 className="text-3xl font-[Girassol]">CART</h2>
           {cartItems.length > 0 && (
             <button
               onClick={handleClearCart}
-              className="text-sm text-primary hover:underline"
+              className="font-[Girassol] text-sm text-primary hover:underline"
             >
               REMOVE ALL
             </button>
@@ -31,12 +31,12 @@ function Cart() {
         </div>
 
         {cartItems.length === 0 ? (
-          <p className="text-center text-lg">CART IS EMPTY</p>
+          <p className="text-center text-lg font-[Girassol]">CART IS EMPTY</p>
         ) : (
           cartItems.map((item, index) => (
             <div
               key={index}
-              className="flex items-center bg-neutral p-4 mb-4 border border-accent rounded-lg"
+              className="flex items-center font-[Girassol] bg-neutral p-4 mb-4 border border-accent rounded-lg"
             >
               {/* 商品圖片 */}
               <img

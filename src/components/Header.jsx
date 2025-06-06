@@ -91,7 +91,7 @@ useEffect(() => {
         >
           <MdShoppingCart className="w-full h-full" />
           {cartCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-primary text-neutral text-xs w-3 h-3 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
+            <span className="absolute -top-2 -right-2 bg-primary text-neutral font-[Girassol] text-xs w-3 h-3 sm:w-5 sm:h-5 rounded-full flex items-center justify-center">
               {cartCount}
             </span>
           )}
